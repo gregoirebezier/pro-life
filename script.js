@@ -1,5 +1,13 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure all sections are visible immediately
+    const allSections = document.querySelectorAll('section');
+    allSections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+        section.style.visibility = 'visible';
+    });
+
     // Initialize all components
     initMobileNavigation();
     initSmoothScrolling();
@@ -332,19 +340,10 @@ function initScrollEffects() {
 
         // Observe all sections for fade-in effect
         sections.forEach(section => {
-            // Don't hide sections that are already in viewport on load
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                // Section is already visible, show it immediately
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            } else {
-                // Section is not visible, prepare for animation
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            }
+            // Show all sections immediately on load, then apply observer for scroll animations
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
     } else {
