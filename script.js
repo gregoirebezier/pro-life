@@ -78,20 +78,20 @@ function initPhotoGallery() {
         photoGallery.style.display = 'block';
         showGalleryBtn.style.display = 'none';
 
-        // Scroll to gallery
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const galleryPosition = photoGallery.offsetTop - navbarHeight - 20;
+        // Force gallery to be visible immediately
+        photoGallery.style.opacity = '1';
+        photoGallery.style.transform = 'translateY(0)';
 
-        window.scrollTo({
-            top: galleryPosition,
-            behavior: 'smooth'
-        });
+        // Initialize carousel after showing
+        setTimeout(() => {
+            initCarousel();
+        }, 100);
     });
 
     // Initialize photo carousel functionality
     function initCarousel() {
         // This function will be called when photos are added
-        const photoElements = document.querySelectorAll('.carousel-track img');
+        const photoElements = document.querySelectorAll('.photo-item');
         photos = Array.from(photoElements);
 
         if (photos.length > 0) {
@@ -111,9 +111,14 @@ function initPhotoGallery() {
 
     // Update carousel display
     function updateCarousel() {
-        const track = document.querySelector('.carousel-track');
-        const translateX = -currentPhotoIndex * 100;
-        track.style.transform = `translateX(${translateX}%)`;
+        // Hide all photos
+        photos.forEach((photo, index) => {
+            if (index === currentPhotoIndex) {
+                photo.style.display = 'flex';
+            } else {
+                photo.style.display = 'none';
+            }
+        });
         currentPhotoSpan.textContent = currentPhotoIndex + 1;
     }
 
