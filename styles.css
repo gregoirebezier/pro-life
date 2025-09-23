@@ -422,6 +422,47 @@ section:nth-child(even) {
     color: #2c3e50;
 }
 
+/* Video response styling */
+.video-response {
+    background-color: #f0f8ff;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    border-left: 4px solid #3498db;
+    text-align: center;
+}
+
+.video-response h5 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.video-response .video-item {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
+.video-response .video-item video {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+}
+
+.video-response .video-description {
+    color: #34495e;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
 .psychological-risks {
     background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
     color: white;
