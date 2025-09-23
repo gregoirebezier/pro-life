@@ -225,6 +225,9 @@ function initVideoControls() {
     const videos = document.querySelectorAll('video');
 
     videos.forEach(video => {
+        // Ensure video is visible
+        video.style.display = 'block';
+
         // Add custom controls functionality if needed
         video.addEventListener('loadstart', function() {
             console.log('Video loading started:', this.src);
@@ -266,6 +269,14 @@ function initVideoControls() {
                 video.dispatchEvent(new Event('error'));
             }
         }, 2000);
+    });
+
+    // Force all video containers to be visible
+    const videoResponses = document.querySelectorAll('.video-response');
+    videoResponses.forEach(container => {
+        container.style.display = 'block';
+        container.style.opacity = '1';
+        container.style.visibility = 'visible';
     });
 }
 

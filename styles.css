@@ -430,6 +430,9 @@ section:nth-child(even) {
     margin-top: 1.5rem;
     border-left: 4px solid #3498db;
     text-align: center;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .video-response h5 {
@@ -453,7 +456,9 @@ section:nth-child(even) {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-    display: block;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Fallback when video fails to load */
