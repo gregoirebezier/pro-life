@@ -453,6 +453,16 @@ section:nth-child(even) {
     border-radius: 8px;
     margin-bottom: 1rem;
     box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    display: block;
+}
+
+/* Fallback when video fails to load */
+.video-response .video-item video:not([src]) {
+    display: none;
+}
+
+.video-response .video-item {
+    min-height: auto;
 }
 
 .video-response .video-description {

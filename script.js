@@ -8,6 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
 });
 
+// Also ensure sections are visible after window load
+window.addEventListener('load', function() {
+    // Force visibility check after everything is loaded
+    setTimeout(() => {
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0 && section.style.opacity === '0') {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    }, 100);
+});
+
 // Mobile Navigation
 function initMobileNavigation() {
     const hamburger = document.querySelector('.hamburger');
@@ -226,22 +241,31 @@ function initVideoControls() {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'video-error';
             errorDiv.style.cssText = `
-                background-color: #f8d7da;
-                color: #721c24;
+                background-color: #fff3cd;
+                color: #856404;
                 padding: 1rem;
                 border-radius: 8px;
                 text-align: center;
                 margin: 1rem 0;
+                border: 1px solid #ffeaa7;
             `;
             errorDiv.innerHTML = `
-                <strong>Erreur de chargement vidéo</strong><br>
-                Vérifiez que le fichier existe et est accessible.
+                <strong>📹 Vidéo temporairement indisponible</strong><br>
+                <small>La réponse écrite reste disponible ci-dessus.</small>
             `;
 
             // Replace video with error message
             this.parentNode.insertBefore(errorDiv, this);
             this.style.display = 'none';
         });
+
+        // Check if video source exists after a short delay
+        setTimeout(() => {
+            if (video.readyState === 0 && video.networkState === 3) {
+                // Video failed to load
+                video.dispatchEvent(new Event('error'));
+            }
+        }, 2000);
     });
 }
 
@@ -297,9 +321,19 @@ function initScrollEffects() {
 
         // Observe all sections for fade-in effect
         sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            // Don't hide sections that are already in viewport on load
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                // Section is already visible, show it immediately
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            } else {
+                // Section is not visible, prepare for animation
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            }
             observer.observe(section);
         });
     } else {
