@@ -404,6 +404,50 @@ section:nth-child(even) {
     margin-bottom: 1.5rem;
 }
 
+.consensus-study {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.consensus-study h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.consensus-study p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.consensus-study ul {
+    margin: 1rem 0;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.consensus-study li {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.consensus-study strong {
+    color: #e8f4f8;
+}
+
+.study-source {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Arguments section */
 .arguments-section {
     background-color: #f8f9fa;
@@ -467,6 +511,37 @@ section:nth-child(even) {
     color: #2c3e50;
 }
 
+.response ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.response li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.source-links {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 3px solid #3498db;
+}
+
+.source-links li {
+    margin-bottom: 0.8rem;
+}
+
+.source-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.source-links a:hover {
+    text-decoration: underline;
+}
+
 /* Video response styling */
 .video-response {
     background-color: #f0f8ff;
@@ -524,7 +599,7 @@ section:nth-child(even) {
 }
 
 .psychological-risks {
-    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 3rem;
     border-radius: 15px;
@@ -534,6 +609,38 @@ section:nth-child(even) {
 .psychological-risks h3 {
     color: white;
     margin-bottom: 1.5rem;
+}
+
+.study-details {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.study-details h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.study-details p {
+    margin-bottom: 1.2rem;
+    line-height: 1.6;
+}
+
+.study-details strong {
+    color: #e8f4f8;
+}
+
+.study-details a {
+    color: #b8e6ff;
+    text-decoration: underline;
+}
+
+.study-details a:hover {
+    color: white;
 }
 
 /* Gallery section */
