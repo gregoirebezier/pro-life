@@ -50,6 +50,15 @@ h4 {
     color: #7f8c8d;
 }
 
+h5 {
+    font-size: 1.1rem;
+    color: #34495e;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+}
+
 p {
     margin-bottom: 1rem;
     text-align: justify;
@@ -418,19 +427,53 @@ section:nth-child(even) {
     font-size: 1.3rem;
 }
 
+.consensus-study h5 {
+    color: #e8f4f8;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.study-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.study-section:last-child {
+    border-bottom: none;
+}
+
+.counter-argument-section {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid rgba(255, 193, 7, 0.6);
+    margin-top: 1rem;
+}
+
+.counter-argument-section h5 {
+    color: #ffd700;
+    margin-top: 0;
+}
+
 .consensus-study p {
     margin-bottom: 1.2rem;
     line-height: 1.6;
+    text-align: left;
 }
 
-.consensus-study ul {
+.clean-list {
     margin: 1rem 0;
-    padding-left: 0;
-    list-style: none;
-    text-align: center;
+    padding-left: 1.5rem;
+    list-style: disc;
+    text-align: left;
 }
 
-.consensus-study li {
+.clean-list li {
     margin-bottom: 0.8rem;
     line-height: 1.5;
 }
