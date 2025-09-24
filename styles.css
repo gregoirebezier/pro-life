@@ -482,6 +482,46 @@ section:nth-child(even) {
     color: #e8f4f8;
 }
 
+/* Styles for psychological risks section */
+.psychological-risks {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.psychological-risks h3 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.study-details,
+.study-counter-analysis {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.study-details h4,
+.study-counter-analysis h4 {
+    color: #e8f4f8;
+    margin-bottom: 1rem;
+}
+
+.psychological-risks p {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.psychological-risks strong {
+    color: #e8f4f8;
+}
+
 .study-source {
     font-style: italic;
     font-size: 0.95rem;
