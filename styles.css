@@ -531,6 +531,64 @@ section:nth-child(even) {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Conclusion section styles */
+.arbitrariness-warning {
+    background-color: #fff8e1;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #ff9800;
+    margin: 2rem 0;
+}
+
+.arbitrariness-warning h3 {
+    color: #e65100;
+    margin-bottom: 1.5rem;
+}
+
+.arbitrariness-warning p {
+    color: #5d4037;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+/* Emergency contraception section */
+.emergency-contraception {
+    background-color: #f3e5f5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #9c27b0;
+    margin: 1.5rem 0;
+}
+
+.emergency-contraception h5 {
+    color: #7b1fa2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.emergency-contraception p {
+    color: #4a148c;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.emergency-contraception ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+    color: #4a148c;
+}
+
+.emergency-contraception ul li {
+    margin-bottom: 0.3rem;
+}
+
+.sources-note {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(156, 39, 176, 0.3);
+}
+
+
 /* Arguments section */
 .arguments-section {
     background-color: #f8f9fa;
