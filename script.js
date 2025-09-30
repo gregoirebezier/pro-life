@@ -36,6 +36,8 @@ function initMobileNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const dropdownSubmenus = document.querySelectorAll('.dropdown-submenu');
+    const allLinks = document.querySelectorAll('.nav-link, .dropdown-link, .dropdown-sublink');
 
     // Toggle mobile menu
     hamburger.addEventListener('click', function() {
@@ -43,11 +45,40 @@ function initMobileNavigation() {
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    // Toggle submenu on mobile when clicking dropdown-link
+    if (window.innerWidth <= 768) {
+        dropdownSubmenus.forEach(submenu => {
+            const submenuLink = submenu.querySelector('.dropdown-link');
+            submenuLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Toggle active class on this submenu
+                submenu.classList.toggle('active');
+
+                // Close other submenus
+                dropdownSubmenus.forEach(otherSubmenu => {
+                    if (otherSubmenu !== submenu) {
+                        otherSubmenu.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    // Close mobile menu when clicking on any link (nav-link, dropdown-sublink)
+    allLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only close menu if it's not a dropdown-link with submenu
+            if (!link.classList.contains('dropdown-link') || !link.parentElement.classList.contains('dropdown-submenu')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+
+                // Close all submenus
+                dropdownSubmenus.forEach(submenu => {
+                    submenu.classList.remove('active');
+                });
+            }
         });
     });
 
@@ -56,29 +87,46 @@ function initMobileNavigation() {
         if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+
+            // Close all submenus
+            dropdownSubmenus.forEach(submenu => {
+                submenu.classList.remove('active');
+            });
         }
     });
 }
 
 // Smooth Scrolling
 function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('.nav-link');
+    const allScrollLinks = document.querySelectorAll('.nav-link, .dropdown-link, .dropdown-sublink');
 
-    navLinks.forEach(link => {
+    allScrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
 
-            if (targetSection) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navbarHeight - 20;
+            // Only handle links that start with # (internal links)
+            if (targetId && targetId.startsWith('#')) {
+                const targetSection = document.querySelector(targetId);
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                // Don't prevent default for dropdown-link with submenu on mobile
+                if (link.classList.contains('dropdown-link') &&
+                    link.parentElement.classList.contains('dropdown-submenu') &&
+                    window.innerWidth <= 768) {
+                    // Let the toggle handler deal with it
+                    return;
+                }
+
+                e.preventDefault();
+
+                if (targetSection) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navbarHeight - 20;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });

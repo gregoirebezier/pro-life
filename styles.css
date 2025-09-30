@@ -1253,6 +1253,13 @@ footer {
         font-size: 1.2rem;
     }
 
+    /* Mobile menu scrollable */
+    .nav-menu {
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
     /* Mobile dropdown styles */
     .nav-dropdown {
         position: static;
@@ -1279,12 +1286,29 @@ footer {
         border-bottom: none;
     }
 
-    /* Mobile submenu styles */
+    /* Mobile submenu styles - cachés par défaut */
     .dropdown-submenu {
         position: static;
     }
 
+    .dropdown-submenu > .dropdown-link {
+        cursor: pointer;
+    }
+
+    .dropdown-submenu > .dropdown-link::after {
+        content: ' ▼';
+        font-size: 0.8em;
+        transition: transform 0.3s ease;
+        display: inline-block;
+        margin-left: 0.3rem;
+    }
+
+    .dropdown-submenu.active > .dropdown-link::after {
+        transform: rotate(180deg);
+    }
+
     .dropdown-submenu-content {
+        display: none; /* Caché par défaut sur mobile */
         position: static;
         background-color: #2c3e50;
         opacity: 1;
@@ -1295,6 +1319,11 @@ footer {
         margin: 0;
         padding: 0;
         max-height: none;
+    }
+
+    /* Afficher le sous-menu quand la classe 'active' est ajoutée */
+    .dropdown-submenu.active .dropdown-submenu-content {
+        display: block;
     }
 
     .dropdown-sublink {
