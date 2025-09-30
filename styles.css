@@ -1038,6 +1038,46 @@ section:nth-child(even) {
     margin-bottom: 1.5rem;
 }
 
+/* Informed debate section */
+.informed-debate {
+    margin-bottom: 3rem;
+    background-color: #fff3e0;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #ff6f00;
+}
+
+.informed-debate h3 {
+    color: #e65100;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.informed-debate ul {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.informed-debate ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.informed-debate p {
+    color: #5d4037;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.conclusion-education {
+    font-weight: 600;
+    background-color: #ffe0b2;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #f57c00;
+    margin-top: 1.5rem;
+}
+
 .final-thought {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
