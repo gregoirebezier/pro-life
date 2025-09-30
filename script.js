@@ -106,8 +106,6 @@ function initSmoothScrolling() {
 
             // Only handle links that start with # (internal links)
             if (targetId && targetId.startsWith('#')) {
-                const targetSection = document.querySelector(targetId);
-
                 // Don't prevent default for dropdown-link with submenu on mobile
                 if (link.classList.contains('dropdown-link') &&
                     link.parentElement.classList.contains('dropdown-submenu') &&
@@ -118,9 +116,22 @@ function initSmoothScrolling() {
 
                 e.preventDefault();
 
+                const targetSection = document.querySelector(targetId);
+
                 if (targetSection) {
+                    // Fermer le menu mobile si ouvert
+                    const hamburger = document.querySelector('.hamburger');
+                    const navMenu = document.querySelector('.nav-menu');
+                    if (hamburger && hamburger.classList.contains('active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+
+                    // Calculer la position réelle de l'élément depuis le haut de la page
                     const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    const targetPosition = targetSection.offsetTop - navbarHeight - 20;
+                    const rect = targetSection.getBoundingClientRect();
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const targetPosition = rect.top + scrollTop - navbarHeight - 20;
 
                     window.scrollTo({
                         top: targetPosition,
