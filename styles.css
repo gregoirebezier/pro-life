@@ -416,6 +416,106 @@ section:nth-child(even) {
     line-height: 1.6;
 }
 
+/* Reasons for Abortion section */
+.reasons-section {
+    background-color: #f8f9fa;
+}
+
+.reasons-breakdown {
+    margin-bottom: 3rem;
+}
+
+.reasons-breakdown h3 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.statistics-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat-category {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.stat-category h4 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid;
+}
+
+.hard-cases {
+    border-left: 5px solid #e74c3c;
+}
+
+.hard-cases h4 {
+    color: #e74c3c;
+    border-bottom-color: #e74c3c;
+}
+
+.elective-cases {
+    border-left: 5px solid #3498db;
+}
+
+.elective-cases h4 {
+    color: #3498db;
+    border-bottom-color: #3498db;
+}
+
+.stat-category .clean-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.stat-category .clean-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.stat-category .clean-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.hard-cases .clean-list li::before {
+    color: #e74c3c;
+}
+
+.elective-cases .clean-list li::before {
+    color: #3498db;
+}
+
+.context-note {
+    background-color: #e8f4f8;
+    padding: 1.5rem;
+    border-left: 4px solid #3498db;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+}
+
+.context-note p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.context-note p:last-child {
+    margin-bottom: 0;
+}
+
 /* Criteria section */
 .criteria-section {
     background-color: white;
